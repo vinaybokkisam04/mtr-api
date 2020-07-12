@@ -1,0 +1,110 @@
+CREATE DATABASE M_T_R;
+
+
+1. Flag for login status
+2. Multiple wrong credentials
+
+CREATE TABLE User_Login_Details(  
+   UserName varchar NOT NULL,
+   PhoneNumber int,
+   Password varchar(13) NOT NULL,
+   Email varchar(30),
+   PRIMARY KEY (UserName)
+);
+
+
+CREATE TABLE Main_Categories(
+   MainCatId SERIAL,
+   MainCatName text NOT NULL,
+   PRIMARY KEY (MainCatId)
+);
+
+
+CREATE TABLE Sub_Categories(
+   SubCatId SERIAL ,
+   MainCatId int NOT NULL,
+   SubCatName text NOT NULL,
+   PRIMARY KEY (SubCatId),
+   FOREIGN KEY (MainCatId) REFERENCES Main_Categories (MainCatId)
+);
+
+
+CREATE TABLE User_Profiles(
+   UserName varchar,
+   Name text NOT NULL,
+   Pictures bytea[],
+   Age int NOT NULL,
+   Gender text NOT NULL,
+   Location point,
+   Description varchar,
+   PRIMARY KEY (UserName),
+   FOREIGN KEY (UserName) REFERENCES User_Login_Details (UserName)
+);
+
+
+CREATE TABLE Places_Sub2_Details(
+   PlaceSub2Id SERIAL,
+   SubCatId int NOT NUll,
+   Name text NOT NULL,
+   Pictures bytea[] NOT NULL,
+   Location point,
+   Description varchar,
+   NoOfRequests int NOT NULL,
+   PRIMARY KEY (PlaceSub2Id),
+   FOREIGN KEY (SubCatId) REFERENCES Sub_Categories (SubCatId)
+);
+
+1. Name Can be a language, event, etc., 
+2. From time and to time are excpeting time for the event.
+3. Duration is amount of time the request displays in screen
+
+CREATE TABLE Requests_Details(
+   RequestId SERIAL,
+   PlaceSub2Id int NOT NULL,
+   UserName varchar NOT NULL,
+   UserNames varchar[], 
+   Name text,
+   FromTime timestamp without time zone,
+   ToTime timestamp without time zone,
+   Duration int,
+   TotalPeople int NOT NULL,
+   FilledPeople int NOT NULL,
+   Description varchar,
+   Pictures bytea[] NOT NULL,
+   PRIMARY KEY (RequestId),
+   FOREIGN KEY (PlaceSub2Id) REFERENCES Places_Sub2_Details (PlaceSub2Id),
+   FOREIGN KEY (UserName) REFERENCES User_Profiles (UserName)
+);
+
+CREATE TABLE TillDate_Request_Count(
+   RequestCount Bigint
+);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+RequestDetails View:
+--------------------
+
+Select TotalPeople, FilledPeople, Desc from Requests_Details RD 
+       Join User_Profiles UP on UP.UserId = RD.UserId
+	   Join Places_Sub2_Details PSD on PSD.PlaceSub2Id = RD.PlaceSub2Id
+	   where RD.PlaceSub2Id = :RD.PlaceSubId
+	   order by RD.RequestId
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO Main_Categories(MainCatName)
+VALUES ('Sports'), ('Co-Learning'), ('Travel'), ('Events'), ('Classes'), ('Buy/Sell'), ('Staying');
+
+INSERT INTO Sub_Categories (MainCatId, SubCatName)
+VALUES (1, 'Volleyball'), (1, 'Batminton'), (1, 'Cricket'), (1, 'Basketball'),
+       (2, 'Languages'), (2, 'Exams'), (2, 'Cooking'), (2, 'Music'),
+	   (3, 'Local'), (3, 'Within State'), (3, 'Within India'), (3, 'Outside India'), (3, 'Long Drives'),
+	   (4, 'Social services'), (4, 'Standup Comedy'), (4, 'concerts'), (4, 'Sports'),
+	   (5, 'Sports'), (5, 'Music'), (5, 'Yoga'),
+       (6, 'Electronics'), (6, 'Automobiles'), (6, 'Furniture'), (6, 'Pets'), (6, 'Plants'),
+	   (7, 'Hostels/Pg'), (7, 'Apartments'), (7, 'Hotels'), (7, 'Libraries');
+	   
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

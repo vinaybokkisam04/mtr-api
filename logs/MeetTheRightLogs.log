@@ -1,0 +1,19 @@
+2020-07-01 20:45:43.787  INFO 12564 --- [restartedMain] c.meettheright.MeettherightApplication   : Starting MeettherightApplication on DESKTOP-KSJRGSL with PID 12564 (D:\meettheright\target\classes started by Vinay in D:\meettheright)
+2020-07-01 20:45:43.787  INFO 12564 --- [restartedMain] c.meettheright.MeettherightApplication   : No active profile set, falling back to default profiles: default
+2020-07-01 20:45:44.852  INFO 12564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-01 20:45:44.852  INFO 12564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-01 20:45:44.883  INFO 12564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-01 20:45:45.258  INFO 12564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2020-07-01 20:45:45.367  INFO 12564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2020-07-01 20:45:45.445  INFO 12564 --- [restartedMain] c.meettheright.MeettherightApplication   : Started MeettherightApplication in 1.826 seconds (JVM running for 710.19)
+2020-07-01 20:45:58.901  INFO 5052 --- [restartedMain] c.meettheright.MeettherightApplication   : Starting MeettherightApplication on DESKTOP-KSJRGSL with PID 5052 (D:\meettheright\target\classes started by Vinay in D:\meettheright)
+2020-07-01 20:45:58.911  INFO 5052 --- [restartedMain] c.meettheright.MeettherightApplication   : No active profile set, falling back to default profiles: default
+2020-07-01 20:46:05.028  INFO 5052 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-01 20:46:05.028  INFO 5052 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-01 20:46:05.278  INFO 5052 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-01 20:46:07.054  INFO 5052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-01 20:46:07.749  INFO 5052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-01 20:46:08.421  INFO 5052 --- [restartedMain] c.meettheright.MeettherightApplication   : Started MeettherightApplication in 11.75 seconds (JVM running for 13.541)
+2020-07-01 20:46:42.534  INFO 5052 --- [http-nio-8888-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-01 20:57:24.221  INFO 5052 --- [Thread-165] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-07-01 20:57:24.244  INFO 5052 --- [Thread-165] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
